@@ -37,9 +37,9 @@
 330 print
 340 print
 350 print"  1   2   3   4   5   6   7   8   9  10"
-360 for i=1 to9
+360 for i=1 to 9 
 370 for j=1 to 10
-380 printi*10+j;
+380 print i*10+j;
 390 next j
 400 print
 410 next i
@@ -54,7 +54,7 @@
 510 goto 2780
 520 y3=0
 530 m1=0
-540 goto580
+540 goto 580
 550 m1=0
 560 if s=2 then 1230
 570 y3=1
