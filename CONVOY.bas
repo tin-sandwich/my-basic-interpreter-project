@@ -143,7 +143,7 @@
 1400 d1=d
 1410 d1=d1+p1
 1420 print d1;
-1430 if d1=s then1500
+1430 if d1=s then 1500
 1440 if d1=c then 1520
 1450 if dk11 then 1600
 1460 if d1>90 then 1640
