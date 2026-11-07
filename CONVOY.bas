@@ -145,13 +145,13 @@
 1390 p1=11
 1400 d1=d
 1410 d1=d1+p1
-1420 print d1;
+1420 print d1; "-";
 1430 if d1=s then 1500
 1440 if d1=c then 1520
-1450 if d1 then 1600
-1460 if d1>90 then 1640
-1470 if d1=10*int(d1/10) then 1560
-1480 if d1=1+(10*int(d1/10)) then 1580
+1450 if d1 < 1 or d1 > 100 then 1680
+1460 rem check for illegal horizontal wrap-arounds on diagonal shots
+1470 if p1 = 1 and d1 = 10 * int(d1 / 10) + 1 then 1680
+1480 if p1 = -1 and d1 = 10 * int(d1 / 10) then 1680
 1490 goto 1410
 1500 print"ker-boom! cargo ship destroyed!"
 1502 print"you win"
@@ -165,11 +165,11 @@
 1570 goto 1680
 1580 if d=1+(10*int(d/10)) then 1410
 1590 goto 1680
-1600 if d>10 then 1680
+1600 if d1>10 then 1680
 1610 if d1<2 then 1680
 1620 if d1>9 then 1680
 1630 goto 1410
-1640 if d<91 then 1680
+1640 if d1<91 then 1680
 1650 if d1<92 then 1680
 1660 if d1>99 then 1680
 1670 goto 1410
