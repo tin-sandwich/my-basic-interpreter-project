@@ -2,7 +2,7 @@
 90 print tab(15)"creative computing, morristown, new jersey"
 100 print "instructions";
 110 input b$
-120 if b$="no" then 300
+120 if b$="NO" then 300
 130 print "this naval war game is played on a 10 by 10 matrix"
 140 print"you are the sub; the computer is a cargo ship and its two"
 145 print"destroyers. the ship starts in square 100 and randomly moves"
@@ -27,13 +27,13 @@
 283 print" the sub wins if it succeeds in hitting the ship within 4 "
 285 print"torpedoes without moving to a square occupied by a destroyer."
 286 print
-287 print"to 'fire?' answer:no,l,r,u,d,lu,ld,ru,or,rd."
+287 print"to 'fire?' answer:NO,L,R,U,D,LU,LD,RU,or RD."
 288 print"'l'=left,'r'=right,'u'=up,'d'=down,'lu'=left up,'ru'=right "
 289 print"up,or 'rd'=rightdown"
 290 print
 300 print"will you need a board";
 310 input b$
-320 if b$="no" then 420
+320 if b$="NO" then 420
 330 print
 340 print
 350 print"  1   2   3   4   5   6   7   8   9  10"
@@ -50,6 +50,9 @@
 470 c=78
 480 c2=78
 490 l=100
+495 q=0
+496 q1=0
+497 q2=0
 500 if c=-100 then 550
 510 goto 2780
 520 y3=0
@@ -108,20 +111,20 @@
 1050 goto 2340
 1060 print
 1070 x1=1
-1080 print"sub at";d
-1090 print"ship last seen at";l
+1080 print"sub at ";d
+1090 print"ship last seen at ";l
 1100 print"fire";
 1110 input a$
-1120 if a$="no" then 1730
-1130 if a$="l" then 1250
-1140 if a$="r" then 1270
-1150 if a$="u" then 1290
-1160 if a$="d" then 1310
-1180 if a$="lu" then 1330
-1185 if a$="ld" then 1350
-1190 if a$="ru" then 1370
-1200 if a$="rd" then 1390
-1210 print"ans: no,l,r,u,d,lu,ld,ru,or,rd"
+1120 if a$="NO" then 1730
+1130 if a$="L" then 1250
+1140 if a$="R" then 1270
+1150 if a$="U" then 1290
+1160 if a$="D" then 1310
+1180 if a$="LU" then 1330
+1185 if a$="LD" then 1350
+1190 if a$="RU" then 1370
+1200 if a$="RD" then 1390
+1210 print"ans: NO,L,R,U,D,LU,LD,RU,or RD"
 1220 goto 1100
 1230 print"ship's in port"
 1240 goto 2750
@@ -145,7 +148,7 @@
 1420 print d1;
 1430 if d1=s then 1500
 1440 if d1=c then 1520
-1450 if dk11 then 1600
+1450 if d1 then 1600
 1460 if d1>90 then 1640
 1470 if d1=10*int(d1/10) then 1560
 1480 if d1=1+(10*int(d1/10)) then 1580
@@ -171,9 +174,9 @@
 1660 if d1>99 then 1680
 1670 goto 1410
 1680 t=t-1
-1690 print"miss"
+1690 print" miss"
 1700 if t=0 then 2740
-1710 print t;"torpedoes left"
+1710 print t;" torpedoes left"
 1720 goto 1100
 1730 print
 1740 y=0
