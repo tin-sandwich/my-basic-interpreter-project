@@ -25,8 +25,8 @@
 250 SH1 = INT(RND * 8) + 1
 252 L2 = INT(RND * 400) + 1: IF L2 = L1 THEN L2 = L2 + 1: IF L2 > 400 THEN L2 = 1
 253 SH2 = INT(RND * 8) + 1
-254 W = 1 : L1 = 50 : SH1 = 1
-255 L2 = 51 : SH2 = 5
+254 REM UNCOMMENT TO DEBUG P1: W = 1 : L1 = 50 : SH1 = 1
+255 REM UNCOMMENT TO DEBUG P2: L2 = 55 : SH2 = 5
 256 H1 = 0: RG1 = 0: H2 = 0: RG2 = 0
 257 F1 = 0: F2 = 0
 258 RC = 0
@@ -174,7 +174,7 @@
 1432 PRINT "WIND BEARING: "; W; " | P1 LOCATION: "; L1; ", BEARING: "; SH1
 1434 PRINT "WIND BEARING: "; W; " | P2 LOCATION: "; L2; ", BEARING: "; SH2
 1440 PRINT: AR2 = AR2 - 1: GOTO 403
-1500 REM PRINT WIND ROSE (PLAYER 1)
+1500 REM PRINT WIND ROSE (PLAYER 1 - WITH NUMERIC BEARINGS 1-8)
 1510 FOR B = 1 TO 8: V = M(W, B)
 1520 IF V = 99 THEN S$(B) = "X"
 1530 IF V = -1 THEN S$(B) = "-"
@@ -185,26 +185,26 @@
 1580 PRINT "       8   1   2"
 1590 PRINT "        "; S$(8); "  "; S$(1); "  "; S$(2)
 1600 PRINT "         \ | /"
-1610 PRINT "    "; S$(7); " -- "; CHR$(48 + SH1); " -- "; S$(3)
+1610 PRINT "    7"; S$(7); " -- "; CHR$(48 + SH1); " -- "; S$(3); "3"
 1620 PRINT "         / | \"
 1630 PRINT "        "; S$(6); "  "; S$(5); "  "; S$(4)
 1640 PRINT "       6   5   4": PRINT
 1650 GOTO 309
-1660 REM PRINT WIND ROSE (PLAYER 2)
+1660 REM PRINT WIND ROSE (PLAYER 2 - WITH A AT NORTH & WIND LETTER)
 1670 FOR B = 1 TO 8: V = M(W, B)
 1680 IF V = 99 THEN S$(B) = "X"
 1690 IF V = -1 THEN S$(B) = "-"
 1700 IF V = 0 THEN S$(B) = "0"
 1710 IF V = 1 THEN S$(B) = "+"
 1720 NEXT B
-1730 PRINT "WIND BEARING: "; W; " | P2 SHIP BEARING: "; SH2
-1740 PRINT "       8   1   2"
+1730 PRINT "WIND BEARING: "; CHR$(64 + W); " | P2 SHIP BEARING: "; CHR$(64 + SH2)
+1740 PRINT "       H   A   B"
 1750 PRINT "        "; S$(8); "  "; S$(1); "  "; S$(2)
 1760 PRINT "         \ | /"
-1770 PRINT "    "; S$(7); " -- "; CHR$(64 + SH2); " -- "; S$(3)
+1770 PRINT "    G"; S$(7); " -- "; CHR$(64 + SH2); " -- "; S$(3); "C"
 1780 PRINT "         / | \"
 1790 PRINT "        "; S$(6); "  "; S$(5); "  "; S$(4)
-1800 PRINT "       6   5   4": PRINT
+1800 PRINT "       F   E   D": PRINT
 1810 GOTO 403
 1820 REM PLAYER 1 FIRE CANNONS
 1825 IF F1 = 1 THEN PRINT "Ye have already fired this round!": GOTO 309
