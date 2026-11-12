@@ -213,12 +213,12 @@
 1840 TR = INT((L2 - 1) / 20) + 1: TC = ((L2 - 1) MOD 20) + 1
 1845 RD = TR - LR: CD = TC - LC
 1850 SR = RD * (-DC(SH1)) + CD * DR(SH1)
-1855 S_dist = ABS(SR)
+1855 SD = ABS(SR)
 1860 FR = RD * DR(SH1) + CD * DC(SH1)
 1865 RNG = 0
-1870 IF S_dist = 1 AND ABS(FR) <= 0 THEN RNG = 1
-1875 IF S_dist = 2 AND ABS(FR) <= 1 THEN RNG = 2
-1880 IF S_dist = 3 AND ABS(FR) <= 2 THEN RNG = 3
+1870 IF SD = 1 AND ABS(FR) <= 0 THEN RNG = 1
+1875 IF SD = 2 AND ABS(FR) <= 1 THEN RNG = 2
+1880 IF SD = 3 AND ABS(FR) <= 2 THEN RNG = 3
 1885 IF RNG = 0 THEN PRINT "Enemy ship not in range!": GOTO 309
 1890 HR = INT(RND * 16) + 1
 1895 HIT = 0
@@ -228,11 +228,11 @@
 1915 IF HIT = 0 THEN PRINT "Broadside fired! Shot missed in the swells.": GOTO 309
 1920 PRINT "BROADSIDE HIT!"
 1925 DRL = INT(RND * 16) + 1
-1930 IS_HULL = 0
-1935 IF RNG = 1 AND DRL <= 9 THEN IS_HULL = 1
-1940 IF RNG = 2 AND DRL <= 7 THEN IS_HULL = 1
-1945 IF RNG = 3 AND DRL <= 4 THEN IS_HULL = 1
-1950 IF IS_HULL = 1 THEN GOTO 1960 ELSE GOTO 1970
+1930 IH = 0
+1935 IF RNG = 1 AND DRL <= 9 THEN IH = 1
+1940 IF RNG = 2 AND DRL <= 7 THEN IH = 1
+1945 IF RNG = 3 AND DRL <= 4 THEN IH = 1
+1950 IF IH = 1 THEN GOTO 1960 ELSE GOTO 1970
 1960 H2 = H2 + 1: PRINT "Direct hit to enemy Hull! (Hull damage: "; H2; "/10)": GOTO 1980
 1970 RG2 = RG2 + 1: PRINT "Rigging hit! Enemy sails damaged! (Rigging damage: "; RG2; "/10)"
 1975 IF RG2 >= 10 THEN PRINT "Enemy rigging destroyed! Enemy ship cannot move!"
@@ -245,12 +245,12 @@
 2020 TR = INT((L1 - 1) / 20) + 1: TC = ((L1 - 1) MOD 20) + 1
 2025 RD = TR - LR: CD = TC - LC
 2030 SR = RD * (-DC(SH2)) + CD * DR(SH2)
-2035 S_dist = ABS(SR)
+2035 SD = ABS(SR)
 2040 FR = RD * DR(SH2) + CD * DC(SH2)
 2045 RNG = 0
-2050 IF S_dist = 1 AND ABS(FR) <= 0 THEN RNG = 1
-2055 IF S_dist = 2 AND ABS(FR) <= 1 THEN RNG = 2
-2060 IF S_dist = 3 AND ABS(FR) <= 2 THEN RNG = 3
+2050 IF SD = 1 AND ABS(FR) <= 0 THEN RNG = 1
+2055 IF SD = 2 AND ABS(FR) <= 1 THEN RNG = 2
+2060 IF SD = 3 AND ABS(FR) <= 2 THEN RNG = 3
 2065 IF RNG = 0 THEN PRINT "Enemy ship not in range!": GOTO 403
 2070 HR = INT(RND * 16) + 1
 2075 HIT = 0
@@ -260,11 +260,11 @@
 2095 IF HIT = 0 THEN PRINT "Broadside fired! Shot missed in the swells.": GOTO 403
 2100 PRINT "BROADSIDE HIT!"
 2105 DRL = INT(RND * 16) + 1
-2110 IS_HULL = 0
-2115 IF RNG = 1 AND DRL <= 9 THEN IS_HULL = 1
-2120 IF RNG = 2 AND DRL <= 7 THEN IS_HULL = 1
-2125 IF RNG = 3 AND DRL <= 4 THEN IS_HULL = 1
-2130 IF IS_HULL = 1 THEN GOTO 2140 ELSE GOTO 2150
+2110 IH = 0
+2115 IF RNG = 1 AND DRL <= 9 THEN IH = 1
+2120 IF RNG = 2 AND DRL <= 7 THEN IH = 1
+2125 IF RNG = 3 AND DRL <= 4 THEN IH = 1
+2130 IF IH = 1 THEN GOTO 2140 ELSE GOTO 2150
 2140 H1 = H1 + 1: PRINT "Direct hit to enemy Hull! (Hull damage: "; H1; "/10)": GOTO 2160
 2150 RG1 = RG1 + 1: PRINT "Rigging hit! Enemy sails damaged! (Rigging damage: "; RG1; "/10)"
 2155 IF RG1 >= 10 THEN PRINT "Enemy rigging destroyed! Enemy ship cannot move!"
